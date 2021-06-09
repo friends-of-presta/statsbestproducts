@@ -202,9 +202,9 @@ LEFT JOIN "._DB_PREFIX_."order_return_detail AS ord ON (oret.id_order_return=ord
 LEFT JOIN "._DB_PREFIX_."order_detail AS od ON (ord.id_order_detail=od.id_order_detail)  
 LEFT JOIN "._DB_PREFIX_."product_attribute AS pa ON (od.product_attribute_id=pa.id_product_attribute)
 LEFT JOIN "._DB_PREFIX_."order_return_state_lang AS status ON (oret.state=status.id_order_return_state) 
-WHERE status.id_lang=1 
+WHERE status.id_lang='.(int)$this->getLang().'
 AND date_add BETWEEN $date_between
-AND od.product_id='" . $value['id_product'] . "';";
+AND od.product_id='" . (int)$value['id_product'] . "';";
 	    $nb = Db::getInstance(_PS_USE_SQL_SLAVE_)->getValue($q);
 	    $value['returnrate'] = round($nb / $value['totalQuantitySold'] * 100, 2);
         }
