@@ -109,9 +109,9 @@ class statsbestproducts extends ModuleGrid
                 'align' => 'center'
             ),
 	    array(
-                'id' => 'savrate',
-                'header' => $this->trans('% retour', array(), 'Modules.Statsbestproducts.Admin'),
-                'dataIndex' => 'savrate',
+                'id' => 'returnrate',
+                'header' => $this->trans('% of return', array(), 'Modules.Statsbestproducts.Admin'),
+                'dataIndex' => 'returnrate',
                 'align' => 'center'
             )
         );
@@ -206,7 +206,7 @@ WHERE status.id_lang=1
 AND date_add BETWEEN $date_between
 AND od.product_id='" . $value['id_product'] . "';";
 	    $nb = Db::getInstance(_PS_USE_SQL_SLAVE_)->getValue($q);
-	    $value['savrate'] = round($nb / $value['totalQuantitySold'] * 100, 2);
+	    $value['returnrate'] = round($nb / $value['totalQuantitySold'] * 100, 2);
         }
         unset($value);
 
