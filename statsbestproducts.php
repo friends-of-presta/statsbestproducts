@@ -109,10 +109,10 @@ class statsbestproducts extends ModuleGrid
                 'align' => 'center'
             ),
             array(
-                    'id' => 'returnrate',
-                    'header' => $this->trans('% of return', array(), 'Modules.Statsbestproducts.Admin'),
-                    'dataIndex' => 'returnrate',
-                    'align' => 'center'
+                'id' => 'returnrate',
+                'header' => $this->trans('% of return', array(), 'Modules.Statsbestproducts.Admin'),
+                'dataIndex' => 'returnrate',
+                'align' => 'center'
             )
         );
 
